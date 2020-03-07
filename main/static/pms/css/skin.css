@@ -1,0 +1,60 @@
+/* 页面加载进度条  */
+.pace .pace-progress {
+    background: #4AAF51;
+}
+
+
+/*左侧菜单*/
+
+body.canvas-menu .navbar-static-side,
+body.fixed-sidebar .navbar-static-side {
+	background: #333;
+}
+
+.navbar-default .nav>li>a:focus,.navbar-default .nav>li>a:hover {
+	background-color: #4AAF51;
+}
+/*查询按钮*/
+.btn-primary-search.active.focus, .btn-primary-search.active:focus, .btn-primary-search.active:hover, .btn-primary-search:active.focus, .btn-primary-search:active:focus, .btn-primary-search:active:hover, .open>.dropdown-toggle.btn-primary-search.focus, .open>.dropdown-toggle.btn-primary-search:focus, .open>.dropdown-toggle.btn-primary-search:hover {
+    color: #fff;
+    background-color: #3E9B43;
+    border-color: #3E9B43;
+}
+.btn-primary-search.active, .btn-primary-search:active, .open>.dropdown-toggle.btn-primary-search {
+    background-image: none;
+}
+.btn-primary-search:hover {
+    color: #fff;
+    background-color: #3E9B43;
+    border-color: #3E9B43;
+}
+.btn-primary-search {
+    color: #fff;
+    background-color: #4AAF51;
+    border-color: #4AAF51;
+}
+
+/*success按钮*/
+/*.btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .open>.dropdown-toggle.btn-success.focus, .open>.dropdown-toggle.btn-success:focus, .open>.dropdown-toggle.btn-success:hover {
+    color: #fff;
+    background-color: #3E9B43;
+    border-color: #3E9B43;
+}
+.btn-success.active, .btn-success:active, .open>.dropdown-toggle.btn-success {
+    background-image: none;
+}*/
+.btn-success:hover {
+    color: #fff;
+    background-color: #5AB203;
+    border-color: #5FB708;
+}
+.btn-success {
+    color: #fff;
+    background-color: #66CC00;
+    border-color: #6FD803;
+}
+
+/*左侧菜单图标*/
+.profile-element {
+    text-align: center;
+}

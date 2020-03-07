@@ -1,0 +1,104 @@
+.navbar-static-side {
+  background: none;
+}
+
+.page-tabs a.active {
+  background: #434343;
+}
+
+.layui-layer-btn1 {
+  display: none !important
+}
+
+h1 {
+  color: #FFF;
+  text-align: center;
+}
+
+.dim {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  margin-right: 10px;
+  position: relative;
+  cursor: pointer;
+  width: 85px;
+  line-height: 200px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 30px 30px;
+  height: 85px;
+  text-align: center;
+}
+
+#shade>h1 {
+  flex: 1;
+  marign: 0;
+  position: relative
+}
+
+#layui-layer-shade1>h1 {
+  margin: 0
+}
+
+#shade {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99998;
+  background-color: rgba(0, 0, 0, 0.64);
+}
+
+#shade_center {
+  width: 728px;
+  height: 500px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -364px;
+  margin-top: -250px;
+  z-index: 99999;
+  background-color: rgba(0, 0, 0, 0.78);
+}
+
+#shade_center>h2 {
+  text-align: center
+}
+
+#do1>a,
+#do2>a,
+#do3>a {
+  float: left;
+  padding: 0;
+}
+
+.btn-info {
+  background: #f2f2f2 url(../../static/img/bgc1.png) no-repeat center center;
+  border: none;
+  background-size: 33px 28px !important;
+  color: #FFF !important
+}
+
+
+.activeItem {
+  background-color: #13b5b1 !important
+}
+
+.activeItem:hover {
+  background-color: #13b5b1 !important
+}
+
+#do1,
+#do2,
+#do3 {
+  display: block;
+  overflow: hidden;
+}
+
+#do1 {
+  margin-top: 0;
+}

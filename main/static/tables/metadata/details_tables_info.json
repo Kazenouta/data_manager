@@ -1,0 +1,8 @@
+{
+    "id": 1,
+    "data_name": "股票日线",
+    "tb_name": "b_stk_bar_1day",
+    "data_source": "米筐/Choice", 
+    "length": "20050101至今", 
+    "remark": "20050101-20190831数据来自米筐, 20190901至今数据来自choice"
+}

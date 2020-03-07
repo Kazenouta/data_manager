@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>量化数据管理平台</title>
+    <link rel="shortcut icon" href="../static/images/logo.ico">
+    <link rel="stylesheet" href="../static/js/plugins/layui/css/layui.css">
+    <script src="../static/js/jquery-1.12.4.min.js"></script>
+    <script src="../static/js/plugins/layui/layui.js"></script>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #f7f8fa;
+        }
+        
+        body {
+            overflow-y: auto
+        }
+        
+        .layui-header {
+            background: #21272c url(./static/images/logo.png) no-repeat 5% center;
+            color: #FFF;
+            box-sizing: border-box;
+            padding: 0 5%;
+            line-height: 60px;
+            text-indent: 40px;
+            font-size: 16px;
+        }
+        
+        #tel {
+            width: 174px;
+            height: 60px;
+            float: right;
+            /* background: url(./static/images/tel.png) no-repeat center center; */
+            background-size: 90%;
+            z-index: 100;
+        }
+        
+        .layui-container {
+            padding: 0;
+            width: 90%;
+            padding-bottom: 90px;
+        }
+        
+        .bgc {
+            height: 200px;
+            width: 100%;
+            background: url(./static/images/tb.png) no-repeat center center;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .msg {
+            position: relative;
+            box-sizing: border-box;
+            height: 80px;
+            margin: 20px 0 10px 0;
+        }
+        
+        .msg>div {
+            height: 100%;
+        }
+        
+        .left {
+            border-right: 5px solid #ff5100;
+        }
+        
+        .left>p {
+            font-weight: bold;
+            color: #333;
+            text-align: right;
+            height: 40px;
+            font-size: 18px;
+            padding-right: 14px;
+        }
+        
+        .left>p:nth-child(1) {
+            line-height: 50px;
+        }
+        
+        .left>p:nth-child(2) {
+            line-height: 30px;
+        }
+        
+        .right {
+            line-height: 24px;
+            color: #888;
+            padding-left: 14px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav {
+            height: 240px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            transition: all .3s ease-in-out;
+            margin: 0 10%;
+        }
+        
+        .navItem {
+            width: 30%;
+            height: 200px;
+            box-sizing: border-box;
+            padding: 0 20px;
+            cursor: pointer;
+            float: left;
+            text-align: center;
+           /* line-height: 570px;*/
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .navItemOpac {
+            /*background: #fff;*/
+            width: 80%;
+            height: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            color:#fff;
+            position: absolute;
+            bottom: 10%;
+            left: 7%;
+            z-index: 200;
+            line-height: 50px;
+            /*transition: all .6s ease-in-out;*/
+        }
+
+        /*.navItem:hover .navItemOpac{
+            bottom:15%;
+        }*/
+        
+        .nav1S {
+            padding-left: 0;
+            background: url(./static/images/nav1S.JPG) no-repeat left top;
+            background-size: calc(100% - 20px) calc(100% - 0px);
+        }
+        
+       /* .nav1S:hover {
+            background: url(./static/images/nav1.png) no-repeat left top;
+            background-size: calc(100% - 20px) calc(100% - 0px);
+        }*/
+        
+        .nav2S {
+            background: url(./static/images/nav2S.JPG) no-repeat left top;
+            background-size: calc(100% - 20px) calc(100% - 0px);
+            position:relative;
+        }
+        
+       /* .nav2S:hover {
+            background: url(./static/images/nav2.png) no-repeat left top;
+            background-size: calc(100% - 20px) calc(100% - 0px);
+        }*/
+        
+        .nav3S {
+            background: url(./static/images/nav3S.JPG) no-repeat left top;
+            background-size: calc(100% - 20px) calc(100% - 0px);
+        }
+        
+        /*.nav3S:hover {
+            background: url(./static/images/nav3.png) no-repeat left top;
+            background-size: calc(100% - 20px) calc(100% - 0px);
+        }*/
+        
+        .nav4S {
+            background: url(./static/images/nav4S.JPG) no-repeat left top;
+            background-size: calc(100% - 20px) calc(100% - 0px);
+        }
+        
+       /* .nav4S:hover {
+            background: url(./static/images/nav4.png) no-repeat left top;
+            background-size: calc(100% - 20px) calc(100% - 0px);
+        }*/
+        
+        .nav5 {
+            background: url(./static/images/nav5S.JPG) no-repeat left top;
+            background-size: calc(100% - 20px) calc(100% - 0px);
+        }
+        
+        .nav5S {
+            padding-right: 0;
+            background: url(./static/images/nav5S.JPG) no-repeat left top;
+            background-size: calc(100% - 20px) calc(100% - 0px);
+        }
+
+        .nav6S {
+            padding-right: 0;
+            background: url(./static/images/nav6S.JPG) no-repeat left top;
+            background-size: calc(100% - 20px) calc(100% - 0px);
+        }
+
+        .nav7S {
+            padding-right: 0;
+            background: url(./static/images/nav7S.JPG) no-repeat left top;
+            background-size: calc(100% - 20px) calc(100% - 0px);
+        }
+
+        .nav8S {
+            padding-right: 0;
+            background: url(./static/images/nav8S.JPG) no-repeat left top;
+            background-size: calc(100% - 20px) calc(100% - 0px);
+        }
+
+        .nav9S {
+            padding-right: 0;
+            background: url(./static/images/nav9S.JPG) no-repeat left top;
+            background-size: calc(100% - 20px) calc(100% - 0px);
+        }
+        /*.nav5S:hover {
+            background: url(./static/images/nav5.png) no-repeat left top;
+            background-size: calc(100% - 20px) calc(100% - 0px);
+        }*/
+        
+        .footer {
+            height: 300px;
+            background: #333;
+            color: #ccc
+        }
+        
+        .footer>p {
+            width: 80%;
+            margin: 0 auto;
+        }
+        
+        .footerP {
+            border-bottom: 1px solid #5c5c5c;
+            height: 100px;
+            line-height: 140px;
+            position: relative;
+            font-size: 12px;
+        }
+        
+        .footerP>a,
+        .emblemP>a {
+            color: #ccc;
+            font-size: 12px
+        }
+        
+        .footerP>a:hover {
+            text-decoration: underline
+        }
+        
+        .emblemP>a:hover {
+            text-decoration: underline
+        }
+        
+        #qrcode {
+            width: 80px;
+            height: 80px;
+            background: url(./static/images/qrcode.png) no-repeat center center;
+            background-size: 100% 100%;
+            position: absolute;
+            z-index: 100;
+            top: 126px;
+            right: 0;
+            display: inline-block
+        }
+        
+        .emblemP {
+            padding-top: 70px;
+            font-size: 12px;
+            background: url(./static/images/emblem.png) no-repeat left bottom;
+            background-size: 46px 20px;
+            text-indent: 50px
+        }
+        
+        .footerP b {
+            font-size: 13px
+        }
+        
+        .bgc>p {
+            text-align: center
+        }
+        
+        #bigTitle {
+            padding: 110px 0 30px;
+            font-size: 28px;
+        }
+        
+        #smallTitle {
+            color: #FFF;
+            font-size: 14px
+        }
+        
+        .defaultNavItem {
+            width: calc(100% - 20px);
+            height: calc(100% - 40px);
+            background: url(./static/images/nav2.png) no-repeat left top;
+            background-size: 100% 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+        
+        .goTop {
+            position: fixed;
+            right: 15px;
+            bottom: 15px;
+            z-index: 999999;
+            width: 50px;
+            height: 50px;
+            background-color: #9F9F9F;
+            color: #fff;
+            border-radius: 2px;
+            opacity: .95;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            display: none
+        }
+        
+        .goTop>i {
+            font-size: 40px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="goTop"><i class="layui-icon">&#xe604;</i></div>
+    <div class="layui-header">
+        量化数据管理平台
+        <div id="tel"></div>
+    </div>
+    <div class="layui-row bgc">
+        <p id="bigTitle">量化数据管理平台</p>
+        <p id="smallTitle"></p>
+    </div>
+    <div class="layui-container">
+        <div class="layui-row msg">
+            <div class="left layui-col-lg4 layui-col-xs4">
+                <p>主要</p>
+                <p>功能</p>
+            </div>
+            <div class="right layui-col-lg8 layui-col-xs8">
+                <h3>
+                    <p>量化数据的元数据管理</p>
+                    <p>量化数据的定时任务调度</p>
+                </h3>
+            </div>
+        </div>
+        <div class="layui-row nav">
+
+            <div class="navItem nav1S" data-url="2" href="/metadata/index" >
+                <div class="navItemOpac">元数据管理</div>
+            </div>
+            <div class="navItem nav2S" data-url="1" href="/models/macro" >
+                <div class="defaultNavItem"></div>
+                <div class="navItemOpac">任务调度</div>
+            </div>
+            <div class="navItem nav3S" data-url="3" href="/reports/macro" >
+                <div class="navItemOpac">基础数据展示</div>
+            </div>
+        </div>
+
+    </div>
+    <!-- <div class="layui-row footer">
+        <p class="footerP">
+            <span id="qrcode"></span>
+        </p>
+        <p class="emblemP">
+            备案号:京ICP备09075709号-5&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="">东方宇阳信息科技（北京）有限公司</a> 版权所有
+        </p>
+    </div> -->
+    <script>
+        /*$(".navItem").on("mouseover",function(){
+            $(".navItemOpac").slideDown()
+        })
+        $(".navItem").on("mouseleave",function(){
+            $(".navItemOpac").slideUp()
+        })*/
+        $(function() {
+            var images = new Array();
+
+            function preload() {
+                for (i = 0; i < preload.arguments.length; i++) {
+                    images[i] = new Image()
+                    images[i].src = preload.arguments[i]
+                };
+            };
+            preload(
+                "./static/images/nav1.png",
+                "./static/images/nav2.png",
+                "./static/images/nav3.png",
+                "./static/images/nav4.png",
+                "./static/images/nav5.png",
+                "./static/images/nav1S.png"
+            );
+            $(".navItem").on({
+                "mouseenter": function() {
+                    $(".defaultNavItem").remove()
+                },
+                "click": function() {
+                    // var url = $(this).attr("data-url");
+                    var url = $(this).attr("href");
+                    window.open(url)
+                }
+            });
+
+
+        });
+        $("body").scroll(function() {
+            var h = $("body").scrollTop();
+            if (h > 360) {
+                $(".goTop").fadeIn()
+            } else {
+                $(".goTop").fadeOut()
+            };
+        });
+
+        $(".goTop").click(function() {
+            $('body').animate({
+                scrollTop: '0'
+            }, 300);
+        })
+
+    </script>
+</body>
+
+</html>

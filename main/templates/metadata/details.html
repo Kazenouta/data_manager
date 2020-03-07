@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <link rel="stylesheet" href="../../static/js/plugins/layui/css/layui.css" media="all">
+    <script src="../../static/js/plugins/layui/layui.js"></script>
+    <script src="../../static/js/jquery.min.js"></script>
+    <script src="../../static/js/plugins/vue/vue.min.js"></script>
+    <script src="../../static/js/plugins/echarts/echarts.min.js"></script>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #f7f8fa;
+        }
+
+        body {
+            overflow-y: auto
+        }
+
+        .layui-header {
+            /* background:#FFF  url(./static/images/logo.png) no-repeat 5% center; */
+            color: #21272c;
+            box-sizing: border-box;
+            padding: 0 0%;
+            line-height: 60px;
+            text-indent: 40px;
+            font-size: 14px;
+        }
+
+        .layui-container {
+            padding: 0;
+            width: 90%;
+            padding-bottom: 90px;
+        }
+
+        .msg {
+            position: relative;
+            box-sizing: border-box;
+            height: 80px;
+            margin: 20px 0 10px 0;
+        }
+
+        .left {
+            border-right: 5px solid #ff5100;
+        }
+
+        .right {
+            line-height: 24px;
+            color: #888;
+            padding-left: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav {
+            height: 240px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            transition: all .3s ease-in-out;
+            margin: 0 10%;
+        }
+
+        #bigTitle {
+            padding: 110px 0 30px;
+            font-size: 28px;
+        }
+
+        #smallTitle {
+            color: #FFF;
+            font-size: 14px
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="layui-container">
+        <div class="layui-row">
+            <!-- <hr> -->
+            <div class="layui-header">
+                <h2>数据汇总</h2>
+            </div>
+            <hr>
+        </div>
+        <div class="layui-row">
+            <table class="layui-table lay-even="" lay-skin="">
+                <colgroup>
+                  <col width=" 150">
+                <col width="150">
+                <col width="200">
+                <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <!-- 数据描述: -->
+                        <th>数据名称</th>
+                        <th>数据库表名</th>
+                        <th>数据来源</th>
+                        <th>时间区间</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>股票日线</td>
+                        <td>b_stk_bar_1day</td>
+                        <td>米筐/Choice</td>
+                        <td>20050101至今</td>
+                        <td>20050101-20190831数据来自米筐, 20190901至今数据来自choice </td>
+                    </tr>
+                    <tr>
+                        <td>指数日线</td>
+                        <td>b_idx_bar_1day</td>
+                        <td>米筐/Choice</td>
+                        <td>20140101至今</td>
+                        <td>20140101-20190831数据来自米筐, 20190901至今数据来自choice </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="layui-table" lay-data="{
+                id: 'test3',
+                url: '/metadata/tables/tables_info',
+            }" lay-filter="test3">
+                <!-- page: true,
+                limits: [10,20,50],
+                limit: 10,
+                method: 'post' -->
+                <thead>
+                    <tr>
+                        <!-- <th lay-data="{type:'checkbox'}">ID</th> -->
+                        <th lay-data="{field:'id', width:60, sort: true}">ID</th>
+                        <th lay-data="{field:'data_name', width:120, edit: 'text', align:'center'}">数据名称</th>
+                        <th lay-data="{field:'tb_name', width:150, edit: 'text', align:'center'}">数据库表名</th>
+                        <th lay-data="{field:'data_source', width:120, edit: 'text', align:'center'}">数据来源</th>
+                        <th lay-data="{field:'length', width:150, edit: 'text', align:'center'}">时间区间</th>
+                        <th lay-data="{field:'remark', edit: 'text', align:'center'}">备注</th>
+                        <th lay-data="{fixed: 'right', toolbar: '#barDemo', width:120, align:'center'}">操作</th>
+                    </tr>
+                </thead>
+            </table>
+            <div class="layui-container">
+
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/html" id="barDemo">
+      <a class="layui-btn layui-btn-xs" lay-event="detail">编辑</a>
+      <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+
+    <script>
+        layui.use('table', function () {
+            var table = layui.table;
+            //监听单元格编辑
+            table.on('edit(test3)', function (obj) {
+                var value = obj.value //得到修改后的值
+                    , data = obj.data //得到所在行所有键值
+                    , field = obj.field; //得到字段
+                layer.msg('[ID: ' + data.id + '] ' + field + ' 字段更改为：' + value);
+            });
+        });
+    </script>
+</body>
+
+</html>
